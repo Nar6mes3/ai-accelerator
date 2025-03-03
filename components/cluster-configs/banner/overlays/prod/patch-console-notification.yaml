@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/backgroundColor
+  value: '#ff0000'
+- op: replace
+  path: /spec/text
+  value: 'PRODUCTION ENVIRONMENT'

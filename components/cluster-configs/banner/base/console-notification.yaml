@@ -1,0 +1,9 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: environment-banner
+spec:
+  location: BannerTop
+  color: '#000000'
+  backgroundColor: 'patch-me-see-clusters-overlays'
+  text: patch-me-see-clusters-overlays
