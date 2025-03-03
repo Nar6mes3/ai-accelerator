@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - ../../../clusters/overlays/parasol-insurance-dev
   
 patches:
   - path: patch-cluster-config-app-of-apps.yaml
