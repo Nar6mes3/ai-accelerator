@@ -49,7 +49,8 @@ spec:
             - name: NOTEBOOK_ARGS
               value: |-
                 --ServerApp.port=8888
-                --ServerApp.token=''
+                --ServerApp.disable_check_xsrf=True
+                --IdentityProvider.token=''
                 --ServerApp.password=''
                 --ServerApp.base_url=/notebook/ai-example-training/example-workbench
                 --ServerApp.quit_button=False

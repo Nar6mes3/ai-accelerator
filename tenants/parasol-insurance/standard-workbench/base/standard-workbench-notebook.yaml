@@ -50,7 +50,8 @@ spec:
             - name: NOTEBOOK_ARGS
               value: |-
                 --ServerApp.port=8888
-                --ServerApp.token=''
+                --IdentityProvider.token=''
+                --ServerApp.disable_check_xsrf=True
                 --ServerApp.password=''
                 --ServerApp.base_url=/notebook/parasol-insurance/standard-workbench
                 --ServerApp.quit_button=False
