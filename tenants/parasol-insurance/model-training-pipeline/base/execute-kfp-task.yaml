@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1
 kind: Task
 metadata:
   name: execute-kubeflow-pipeline
@@ -14,7 +14,7 @@ spec:
       type: string
       default: "latest"
     - name: SCRIPT
-      description: The location of the script to be executed
+      description: The name of the script to be executed
     - name: KUBEFLOW_ENDPOINT
       description: The endpoint URL for Kubeflow
       default: "https://ds-pipeline-dspa:8443"

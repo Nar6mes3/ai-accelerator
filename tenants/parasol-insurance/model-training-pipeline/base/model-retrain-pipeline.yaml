@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
   name: model-retrain
@@ -50,7 +50,7 @@ spec:
       params:
         - name: VERSION
           value: $(params.PYTHON_IMAGE)
-        - name: PATH_CONTEXT
+        - name: CONTEXT
           value: $(params.CONTEXT)
         - name: IMAGE
           value: $(params.TARGET_IMAGE)
@@ -84,4 +84,4 @@ spec:
         kind: Task
         name: execute-kubeflow-pipeline
   workspaces:
-    - name: source
+      - name: source          
