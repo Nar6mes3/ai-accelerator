@@ -10,7 +10,7 @@ spec:
       type: string
     - default: 'source_code/40_pipelines'
       description: Repo URL
-      name: GIT_CONTEXT
+      name: CONTEXT
       type: string
     - default: 'train-car-rekon.py'
       name: PIPELINE_SCRIPT
@@ -30,15 +30,19 @@ spec:
   tasks:
     - name: git-clone
       params:
-        - name: url
+        - name: URL
           value: $(params.GIT_URL)
-        - name: revision
+        - name: REVISION
           value: $(params.GIT_REVISION)
-        - name: gitInitImage
-          value: 'registry.redhat.io/openshift-pipelines/pipelines-git-init-rhel8@sha256:868966ef9d4b54952d8a74eb83bba40eb1f52c0148994fa704efd0e3797c61c5'
       taskRef:
-        kind: ClusterTask
-        name: git-clone
+        resolver: cluster
+        params:
+          - name: kind
+            value: task
+          - name: name
+            value: git-clone
+          - name: namespace
+            value: openshift-pipelines
       workspaces:
         - name: output
           workspace: source
@@ -47,14 +51,20 @@ spec:
         - name: VERSION
           value: $(params.PYTHON_IMAGE)
         - name: PATH_CONTEXT
-          value: $(params.GIT_CONTEXT)
+          value: $(params.CONTEXT)
         - name: IMAGE
           value: $(params.TARGET_IMAGE)
       runAfter:
         - git-clone
       taskRef:
-        kind: ClusterTask
-        name: s2i-python
+        resolver: cluster
+        params:
+          - name: kind
+            value: task
+          - name: name
+            value: s2i-python
+          - name: namespace
+            value: openshift-pipelines
       workspaces:
         - name: source
           workspace: source
