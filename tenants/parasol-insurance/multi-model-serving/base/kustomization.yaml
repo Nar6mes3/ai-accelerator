@@ -4,6 +4,6 @@ kind: Kustomization
 namespace: parasol-insurance
 
 resources:
-  - standard-workbench-pvc.yaml
-  - minio-data-connection.yaml
-  - standard-workbench-notebook.yaml
+  - data-connection.yaml
+  - inference-service.yaml
+  - serving-runtime.yaml
